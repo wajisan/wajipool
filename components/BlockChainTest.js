@@ -32,6 +32,7 @@ const BlockChainTest = (props) => {
     };
 
     useEffect(() => {
+        console.log(process.env);
         console.log("id : " + process.env.PROJECT_ID);
         //getLatestEpoch();
     }, []);
