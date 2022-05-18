@@ -1,71 +1,24 @@
-import React, {useState} from 'react';
-import { KeyboardAvoidingView, Platform, StyleSheet, Text, TouchableOpacity, View, TextInput, Keyboard } from 'react-native';
-import Task  from './components/Task';
-import BlockChainTest from './components/BlockChainTest';
+import React from 'react';
+import { StyleSheet, Text, View, Keyboard } from 'react-native';
+import AddAccount  from './components/AddAccount';
+//import Account from './components/Account';
+import BlockChain from './components/BlockChain';
+//<Account stakeAddress="stake1u8a7w862g9g35vgpnzfvk299zlvjy26xp2w8c3dkjlfgzyc3vgu24"></Account>
 
 export default function App() {
-  const [task, setTask] = useState();
-  const [taskItems, setTaskItems] = useState([]);
-
-
-  const handleAddTask = () => {
-    Keyboard.dismiss();
-    setTaskItems([...taskItems, task]);
-    setTask("");
-  }
-
-  const completeTask = (index) => {
-    let itemsCopy = [...taskItems];
-    itemsCopy.splice(index, 1);
-    setTaskItems(itemsCopy);
-  }
-
   return (
     <View style={styles.container}>
-
       <View style={styles.tasksWrapper}>
-        <Text style={styles.sectionTitle}>BlockFrost test :</Text>
-        <BlockChainTest></BlockChainTest>
+        <Text style={styles.sectionTitle}>Waji Pool :</Text>
+        <BlockChain></BlockChain>
+        <AddAccount></AddAccount>
       </View>
-
-      <View style={styles.tasksWrapper}>
-        <Text style={styles.sectionTitle}>Tasks :</Text>
-
-        <View style={styles.items}>
-          {
-            taskItems.map((item, index) => {
-              return (
-                <TouchableOpacity key={index} onPress={() => completeTask(index)}>
-                  <Task text={item} />
-                
-                </TouchableOpacity>
-              )
-            })
-          }
-        </View>
-      </View>
-
-      
-      
-
-    <KeyboardAvoidingView 
-      behavior={Platform.OS === "ios" ? "padding" : "height"}
-      style={styles.writeTaskWrapper}>
-      
-      <TextInput style={styles.input} placeholder={'Write a task'} value={task} onChangeText={ text => setTask(text)} />
-      <TouchableOpacity onPress={() => handleAddTask()}>
-        <View style={styles.addWrapper}>
-          <Text style={styles.addText}>+</Text>
-        </View>
-      </TouchableOpacity>
-    </KeyboardAvoidingView>
-
     </View>
   );
 }
 
 const styles = StyleSheet.create({
- container: {
+ /*container: {
     flex: 1,
     backgroundColor: '#E8EAED',
   },
@@ -76,36 +29,5 @@ const styles = StyleSheet.create({
   sectionTitle: {
     fontSize: 24,
     fontWeight: 'bold'
-  },
-  items: {
-    marginTop: 30,
-  },
-  writeTaskWrapper: {
-    position: 'absolute',
-    bottom: 60,
-    width: '100%',
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    alignItems: 'center'
-  },
-  input: {
-    paddingVertical: 15,
-    paddingHorizontal: 15,
-    backgroundColor: '#FFF',
-    borderRadius: 60,
-    borderColor: '#C0C0C0',
-    borderWidth: 1,
-    width: 250,
-  },
-  addWrapper: {
-    width: 60,
-    height: 60,
-    backgroundColor: '#FFF',
-    borderRadius: 60,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderColor: '#C0C0C0',
-    borderWidth: 1,
-  },
-  addText: {},
+  }*/
 });

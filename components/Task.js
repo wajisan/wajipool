@@ -16,7 +16,7 @@ const Task = (props) => {
 }
 
 const styles = StyleSheet.create({
-    item : {
+    /*item : {
         backgroundColor: "#FFF",
         padding: 15,
         borderRadius: 10,
@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
         borderWidth: 2,
         borderRadius: 5,
 
-    },
+    },*/
 });
 
 export default Task;
