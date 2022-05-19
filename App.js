@@ -1,7 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, Keyboard } from 'react-native';
-import AddAccount  from './components/AddAccount';
-//import Account from './components/Account';
+import Manager  from './components/Manager.jsx';
 import BlockChain from './components/BlockChain';
 import Icon from './components/Icon';
 //<Account stakeAddress="stake1u8a7w862g9g35vgpnzfvk299zlvjy26xp2w8c3dkjlfgzyc3vgu24"></Account>
@@ -12,7 +11,7 @@ export default function App() {
       <View style={styles.wrapper}>
         <Text style={styles.sectionTitle}><Icon/></Text>
         <BlockChain></BlockChain>
-        <AddAccount></AddAccount>
+        <Manager></Manager>
       </View>
     </View>
   );

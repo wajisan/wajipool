@@ -1,20 +1,11 @@
 import React, {useEffect, useState} from 'react';
-import { View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 
 const BlockChain = (props) => {
 
     const [isLoadingData, setLoadingData] = useState(true);
     const [dataSource, setDataSource] = useState([]);
     const [totalAda, setTotalAda] = useState(0);
-
-    const handleRefresh = async () => {
-        setTotalAda(0);
-        getLatestEpoch();
-    }
-
-    const countAda = async (addAda) => {
-        setTotalAda(addAda);
-    }
 
 
     const getLatestEpoch = async () => {
@@ -40,10 +31,7 @@ const BlockChain = (props) => {
 
     useEffect(() => {
         setTotalAda(0);
-        //getLatestEpoch();
-        //console.log(process.env);
-        //console.log("id : " + process.env.PROJECT_ID);
-        //getLatestEpoch();
+        //getLatestEpoch();///////////////////////////////////////
     }, []);
 
     return (

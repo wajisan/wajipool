@@ -46,7 +46,7 @@ const Account = (props) => {
                 setLoadingStake(false);
             }
             else if (response.status == 400){
-                setMessage("Invalid stake address");
+                setMessage("Invalid stake address : "+ props.stakeAddress);
             }
             else {
                 setMessage("Error while reading blockchain");
