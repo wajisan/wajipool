@@ -1,5 +1,4 @@
 import {View, Text, StyleSheet} from 'react-native'
-import { useEffect } from 'react/cjs/react.production.min';
 import { useStore } from '../hooks/useStore'
 import { observer } from 'mobx-react-lite'
 
@@ -7,13 +6,22 @@ const TotalRewards = observer(() => {
     const rewardStore = useStore('rewardStore');
     return (
         <View>
-            <Text style={styles.itemText}>All my rewards ada: {rewardStore.rewards} </Text>
+            {
+                (rewardStore.rewards <= 0) ? <View/> : 
+                <Text style={styles.rewards}> {rewardStore.rewards} ₳</Text>
+            }
         </View>
     )
 })
 
 const styles = StyleSheet.create({
-
+    rewards : {
+        margin: 'auto',
+        marginTop: 15,
+        marginBottom: 15,
+        fontSize: 27,
+        textAlign: 'center'
+      },
 })
 
 export default TotalRewards;

@@ -17,11 +17,17 @@ const AddAccount = (props) => {
         }
     }
 
+    const _handleKeyDown = (e) => {
+      if (e.key === 'Enter') {
+        sendAccount(stakeText);
+      }
+    }
+
     return (
         <KeyboardAvoidingView
         behavior={Platform.OS === "ios" ? "padding" : "height"}
         style={styles.addStakeContainer}>
-        <TextInput style={styles.input} placeholder={'Write a stake address'} value={stakeText} onChangeText={stakeText => setStakeText(stakeText)} />
+        <TextInput style={styles.input} placeholder={'Write a stake address'} value={stakeText} onKeyPress={_handleKeyDown} onChangeText={stakeText => setStakeText(stakeText)} />
         <TouchableOpacity style={styles.addWrapper} onPress={() => { sendAccount(stakeText) }}>
           <View >
             <Text style={styles.addText}>Add</Text>
