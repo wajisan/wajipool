@@ -1,24 +1,28 @@
 import React from 'react';
 import { StyleSheet, Text, View, Keyboard } from 'react-native';
-import Manager  from './components/Manager.jsx';
-import BlockChain from './components/BlockChain';
-import Icon from './components/Icon';
-//<Account stakeAddress="stake1u8a7w862g9g35vgpnzfvk299zlvjy26xp2w8c3dkjlfgzyc3vgu24"></Account>
+import Manager from './components/Manager.jsx';
+import BlockChain from './components/BlockChain.jsx';
+import Icon from './components/Icon.jsx';
+
+
+import { StoresProvider, stores } from './stores'
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <View style={styles.wrapper}>
-        <Text style={styles.sectionTitle}><Icon/></Text>
-        <BlockChain></BlockChain>
-        <Manager></Manager>
+    <StoresProvider value={stores} >
+      <View style={styles.container}>
+        <View style={styles.wrapper}>
+          <Text style={styles.sectionTitle}><Icon /></Text>
+          <BlockChain></BlockChain>
+          <Manager></Manager>
+        </View>
       </View>
-    </View>
+    </StoresProvider>
   );
 }
 
 const styles = StyleSheet.create({
- container: {
+  container: {
     flex: 1,
     backgroundColor: '#E8EAED',
   },
